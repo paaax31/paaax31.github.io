@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Formulario básico</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; }
+    fieldset { border: 1px solid #bbb; padding: 8px; }
+    legend { font-weight: bold; }
+    label { display: inline-block; width: 90px; }
+    input[type="text"], input[type="email"], textarea { width: 320px; }
+    textarea { height: 70px; }
+    .derecha p { margin: 6px 0; }
+    .botonera { text-align: right; margin-top: 12px; }
+    .tabla { width: 100%; border-collapse: collapse; }
+    .tabla td { vertical-align: top; padding: 6px; }
+  </style>
+</head>
+<body>
+
+  <table class="tabla">
+    <tr>
+      <!-- COLUMNA IZQUIERDA -->
+      <td style="width:65%;">
+        <fieldset>
+          <legend>Datos personales:</legend>
+
+          <p>
+            <label for="nombre">Nombre:</label>
+            <input id="nombre" type="text" value="Pau">
+          </p>
+
+          <p>
+            <label for="apellidos">Apellidos:</label>
+            <input id="apellidos" type="text" value="Gimenez">
+          </p>
+
+          <p>
+            <label for="correo">Correo:</label>
+            <input id="correo" type="email" value="pg@gmail.com">
+          </p>
+
+          <p>
+            <label for="hobbies">hobbies</label>
+            <textarea id="hobbies">Jugar videojuegos</textarea>
+          </p>
+        </fieldset>
+
+        <div class="botonera">
+          <button type="reset">Reiniciar</button>
+        </div>
+      </td>
+
+      <!-- COLUMNA DERECHA -->
+      <td class="derecha">
+        <fieldset>
+          <legend>Idiomas</legend>
+          <p>Puntúa tu nivel de idiomas de 1 a 5:</p>
+
+          <p>
+            <strong>Inglés:</strong>
+            <label><input type="radio" name="en" checked> 1</label>
+            <label><input type="radio" name="en"> 2</label>
+            <label><input type="radio" name="en"> 3</label>
+            <label><input type="radio" name="en"> 4</label>
+            <label><input type="radio" name="en"> 5</label>
+          </p>
+
+          <p>
+            <strong>Francés:</strong>
+            <label><input type="radio" name="fr"> 1</label>
+            <label><input type="radio" name="fr" checked> 2</label>
+            <label><input type="radio" name="fr"> 3</label>
+            <label><input type="radio" name="fr"> 4</label>
+            <label><input type="radio" name="fr"> 5</label>
+          </p>
+
+          <p>
+            <strong>Alemán:</strong>
+            <label><input type="radio" name="de"> 1</label>
+            <label><input type="radio" name="de" checked> 2</label>
+            <label><input type="radio" name="de"> 3</label>
+            <label><input type="radio" name="de"> 4</label>
+            <label><input type="radio" name="de"> 5</label>
+          </p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Domino los siguientes programas:</legend>
+          <p><label style="width:auto"><input type="checkbox" checked> Writer</label></p>
+          <p><label style="width:auto"><input type="checkbox"> Calc</label></p>
+          <p><label style="width:auto"><input type="checkbox" checked> Base</label></p>
+          <p><label style="width:auto"><input type="checkbox"> Impress</label></p>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+          <legend>Trabajo con el siguiente Sistema Operativo:</legend>
+          <select>
+            <option selected>Linux</option>
+            <option>Windows</option>
+            <option>macOS</option>
+          </select>
+        </fieldset>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
+
