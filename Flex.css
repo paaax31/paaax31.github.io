@@ -1,0 +1,37 @@
+.padre {
+border: 5px black solid;
+display:flex;
+flex-direction: column;
+height: 500px;
+/*flex-direction: column; --> Para poner los hijos en columna*/
+/*justify-content: space-around; --> Se pone en el medio y se separan los bordes. */
+/*justify-content: space-between; --> Los coloca en las esquinas.*/
+/*justify-content: space-evenly; --> Se queda en el centro */
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+
+
+.hijo {
+border: 2px red solid;
+width: 200px;
+
+}
+
+img {
+    width: 100px;
+    border: red solid 2px;
+    
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between
+}
+
+a {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}

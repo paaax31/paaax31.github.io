@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pokémon – Mini Web (HTML básico)</title>
+  <style>
+    /* ====== Estilos básicos (sin frameworks) ====== */
+    :root{
+      --bg: #0b1220;
+      --card: #121b2f;
+      --text: #e9eefc;
+      --muted: #b7c2e2;
+      --accent: #ffd54a;
+      --accent2: #63d2ff;
+      --border: rgba(255,255,255,.12);
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #081022, #0b1220 40%, #060b15);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: var(--accent2); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    header{
+      padding: 28px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,.2);
+    }
+
+    .container{
+      width: 100%;
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .brand{
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo{
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 30%, #fff 0 10%, var(--accent) 10% 70%, #b88b00 70% 100%);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    h1{
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: .3px;
+    }
+
+    .subtitle{
+      margin: 6px 0 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    nav{
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    nav a{
+      display: inline-block;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255,255,255,.04);
+    }
+
+    main{ padding: 22px 0 44px; }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+
+    .card h2, .card h3{ margin: 0 0 10px; }
+    .muted{ color: var(--muted); }
+
+    /* Responsive */
+    @media (min-width: 780px){
+      .half{ grid-column: span 6; }
+      .third{ grid-column: span 4; }
+    }
+
+    /* Tabla */
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.15);
+    }
+
+    th, td{
+      padding: 10px 10px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th{
+      background: rgba(255,255,255,.06);
+      font-weight: 700;
+    }
+
+    .pill{
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      white-space: nowrap;
+    }
+
+    .notice{
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      background: rgba(255,213,74,.08);
+      border-radius: 12px;
+    }
+
+    footer{
+      padding: 18px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(0,0,0,.2);
+    }
+
+    code{ background: rgba(255,255,255,.07); padding: 2px 5px; border-radius: 6px; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Pokémon – mini web (HTML básico)</h1>
+          <p class="subtitle">
+            Una página sencilla con información general: datos curiosos, tipos y algunos Pokémon.
+            (Hecha para practicar en VS Code.)
+          </p>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#curiosidades">Curiosidades</a>
+        <a href="#tipos">Tipos</a>
+        <a href="#pokemon">Pokémon</a>
+        <a href="#fuentes">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- INICIO -->
+    <section id="inicio" class="card">
+      <h2>¿Qué es Pokémon?</h2>
+      <p>
+        Pokémon es una franquicia de videojuegos y entretenimiento centrada en criaturas llamadas “Pokémon”.
+        Los jugadores exploran, capturan, entrenan y combaten, y una idea clave desde el origen fue el
+        <strong>intercambio</strong> entre jugadores (por ejemplo, usando el cable link de Game Boy).
+      </p>
+      <div class="notice">
+        <strong>Dato rápido:</strong> Los primeros juegos (Rojo y Verde) salieron en Japón el
+        <strong>27 de febrero de 1996</strong>, fecha que se celebra como “Pokémon Day”. :contentReference[oaicite:1]{index=1}
+      </div>
+    </section>
+
+    <!-- CURIOSIDADES -->
+    <section id="curiosidades" class="grid">
+      <div class="card half">
+        <h2>Datos curiosos</h2>
+        <ul>
+          <li>
+            <strong>1996</strong>: lanzamiento inicial en Japón (Rojo y Verde). :contentReference[oaicite:2]{index=2}
+          </li>
+          <li>
+            <strong>Pokémon Day</strong> se celebra cada <strong>27 de febrero</strong> por ese aniversario. :contentReference[oaicite:3]{index=3}
+          </li>
+          <li>
+            La Pokédex “original” de Kanto reúne <strong>151 Pokémon</strong>. :contentReference[oaicite:4]{index=4}
+          </li>
+          <li>
+            El creador Satoshi Tajiri se inspiró en parte en la idea de <strong>coleccionar</strong> (como insectos),
+            y en <strong>intercambiar</strong> entre jugadores. :contentReference[oaicite:5]{index=5}
+          </li>
+        </ul>
+        <p class="muted">
+          Nota: Esta web es divulgativa y simplificada (no es una guía competitiva).
+        </p>
+      </div>
+
+      <div class="card half">
+        <h2>Mini glosario</h2>
+        <ul>
+          <li><strong>Pokédex</strong>: “enciclopedia” de Pokémon.</li>
+          <li><strong>Tipo</strong>: atributo (Fuego, Agua, etc.) que influye en fortalezas/debilidades.</li>
+          <li><strong>Evolución</strong>: cambio de forma que suele mejorar estadísticas.</li>
+          <li><strong>Movimiento</strong>: ataque o habilidad usada en combate.</li>
+        </ul>
+        <p class="muted">
+          Consejo de práctica: prueba a cambiar textos, añadir secciones y editar estilos.
+        </p>
+      </div>
+    </section>
+
+    <!-- TIPOS -->
+    <section id="tipos" class="card">
+      <h2>Tipos de Pokémon</h2>
+      <p>
+        En las generaciones actuales hay <strong>18 tipos “regulares”</strong> (como Fuego, Agua, Planta…)
+        y además existe un tipo especial llamado <strong>Stellar</strong> introducido en la Generación IX. :contentReference[oaicite:6]{index=6}
+      </p>
+
+      <p class="muted">
+        Aquí tienes la lista de los 18 tipos regulares (en español). Puedes usarlos como “etiquetas” al hablar de Pokémon.
+      </p>
+
+      <div aria-label="Lista de tipos">
+        <span class="pill">Acero</span>
+        <span class="pill">Agua</span>
+        <span class="pill">Bicho</span>
+        <span class="pill">Dragón</span>
+        <span class="pill">Eléctrico</span>
+        <span class="pill">Fantasma</span>
+        <span class="pill">Fuego</span>
+        <span class="pill">Hada</span>
+        <span class="pill">Hielo</span>
+        <span class="pill">Lucha</span>
+        <span class="pill">Normal</span>
+        <span class="pill">Planta</span>
+        <span class="pill">Psíquico</span>
+        <span class="pill">Roca</span>
+        <span class="pill">Siniestro</span>
+        <span class="pill">Tierra</span>
+        <span class="pill">Veneno</span>
+        <span class="pill">Volador</span>
+      </div>
+
+      <h3 style="margin-top:14px;">Ejemplos rápidos (muy básico)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Idea general</th>
+            <th>Ejemplo de Pokémon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fuego</td>
+            <td>Suele destacar por ataques ofensivos y quemaduras en juegos.</td>
+            <td>Charmander / Charizard</td>
+          </tr>
+          <tr>
+            <td>Agua</td>
+            <td>Muy común; a menudo equilibrado y con buena cobertura de movimientos.</td>
+            <td>Squirtle / Gyarados</td>
+          </tr>
+          <tr>
+            <td>Planta</td>
+            <td>Frecuente en rutas iniciales; puede usar drenaje/estados.</td>
+            <td>Bulbasaur / Venusaur</td>
+          </tr>
+          <tr>
+            <td>Eléctrico</td>
+            <td>Conocido por velocidad y ataques eléctricos.</td>
+            <td>Pikachu</td>
+          </tr>
+          <tr>
+            <td>Psíquico</td>
+            <td>Históricamente muy potente por movimientos especiales.</td>
+            <td>Mewtwo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="muted">
+        Si quieres, puedo añadir una sección extra con una tabla “Tipo vs. Tipo” (efectividades) pero ya sería más larga.
+      </p>
+    </section>
+
+    <!-- POKÉMON -->
+    <section id="pokemon" class="grid">
+      <div class="card third">
+        <h2>Bulbasaur</h2>
+        <p class="muted">Tipo: Planta / Veneno (ejemplo clásico de Kanto)</p>
+        <p>
+          Conocido como uno de los iniciales más icónicos. En Kanto, la Pokédex original comienza en #001. :contentReference[oaicite:7]{index=7}
+        </p>
+      </div>
+
+      <div class="card third">
+        <h2>Charmander</h2>
+        <p class="muted">Tipo: Fuego</p>
+        <p>
+          Otro inicial de Kanto. Su evolución final, Charizard, es una de las más populares en la franquicia.
+        </p>
+      </div>
+
+      <div class="card third">
+        <h2>Squirtle</h2>
+        <p class="muted">Tipo: Agua</p>
+        <p>
+          Inicial de tipo agua en Kanto. En muchos juegos, el tipo Agua destaca por su versatilidad.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>¿Quieres ampliar esta sección?</h2>
+        <p>
+          Ideas fáciles (sin complicar el código):
+        </p>
+        <ol>
+          <li>Añadir más “cards” de Pokémon (1 card = 1 Pokémon).</li>
+          <li>Crear una lista por tipos (por ejemplo “Mis favoritos de tipo Agua”).</li>
+          <li>Meter una imagen local: guarda una imagen en una carpeta <code>img/</code> y usa <code>&lt;img&gt;</code>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FUENTES -->
+    <section id="fuentes" class="card">
+      <h2>Fuentes (resumen)</h2>
+      <ul>
+        <li>Fecha de lanzamiento inicial (27/02/1996): Bulbapedia y Wikipedia. :contentReference[oaicite:8]{index=8}</li>
+        <li>Tipos (18 regulares + tipo especial Stellar en Gen IX): Bulbapedia. :contentReference[oaicite:9]{index=9}</li>
+        <li>Pokédex de Kanto y 151 entradas originales: Wikidex. :contentReference[oaicite:10]{index=10}</li>
+        <li>Contexto histórico y expansión (origen/idea de intercambio): TIME. :contentReference[oaicite:11]{index=11}</li>
+      </ul>
+      <p class="muted">
+        Esta página es educativa y no oficial. Pokémon y nombres asociados son marcas de sus respectivos propietarios.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Hecho para practicar HTML/CSS básico en VS Code · Última edición: 05/02/2026
+    </div>
+  </footer>
+</body>
+</html>
