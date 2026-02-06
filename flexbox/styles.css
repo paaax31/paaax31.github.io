@@ -1,0 +1,122 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+  min-height: 100vh;
+
+  /* centrado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tarjeta */
+.card {
+  width: 360px;
+  background: white;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+/* Header: avatar + nombre en horizontal */
+.header {
+  background: #d9d9d9;
+  border-radius: 10px;
+  padding: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.foto {
+  width: 90px;
+  height: 90px;
+  background: #2f96d7;
+  border-radius: 50%;
+}
+.foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.name-block .name {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.name-block .role {
+  margin: 6px 0 0 0;
+  font-size: 15px;
+}
+
+/* Bio */
+.bio {
+  margin: 16px 2px 14px 2px;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+/* Separador */
+.divider {
+  height: 1px;
+  background: #e7e7e7;
+  margin: 10px 0 14px 0;
+}
+
+/* Estadísticas en 3 columnas iguales */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.stat {
+  flex: 1;
+}
+
+.number {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.label {
+  font-size: 13px;
+  color: #333;
+}
+
+/* Botones: "Seguir" más ancho */
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2f96d7;
+  color: white;
+  flex: 2; /* más espacio */
+}
+
+.btn-secondary {
+  background: #e9eef2;
+  color: #111;
+  flex: 1; /* menos espacio */
+}
